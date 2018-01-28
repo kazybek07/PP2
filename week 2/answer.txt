@@ -1,0 +1,1 @@
+min prime =2
