@@ -66,8 +66,12 @@ namespace Far
                         else
                         {
                             Console.BackgroundColor = ConsoleColor.Black;
-                            FileStream fs = new FileStream(@"C:\Users\local\Desktop\files", FileMode.Open, FileAccess.Read);
+                            FileStream fs = new FileStream(@"C:\Users\local\Desktop\files\input.txt", FileMode.Open, FileAccess.Read);
                             StreamReader sr = new StreamReader(fs);
+                            string info = sr.ReadToEnd();
+                            Console.Clear();
+                            Console.WriteLine(info);
+                            Console.ReadKey();
 
                         }
                         break;
@@ -77,7 +81,7 @@ namespace Far
                         Console.BackgroundColor = ConsoleColor.Black;
                         break;
                     case ConsoleKey.Q:
-                        
+                       
                         break;
 
                 }

@@ -23,15 +23,15 @@ namespace Complex
             x = a;
             y = b;
         }
-        public int NOD(int a, int b)
+        public int GCD(int a, int b)
         {
             if (b == 0)
                 return a;
-            return NOD(b, a % b);
+            return GCD(b, a % b);
         }
-        public void Socr()
+        public void Cancel()
         {
-            int n = NOD(x, y);
+            int n = GCD(x, y);
             x /= n;
             y /= n;
         }
@@ -42,7 +42,7 @@ namespace Complex
             n.y = c2.y * c1.y;
             n.x = c1.x * n.y / c1.y + c2.x * n.y / c2.y;
 
-            n.Socr();
+            n.Cancel();
 
 
             return n;
@@ -58,8 +58,8 @@ namespace Complex
     {
         public static void Main(string[] args)
         {
-            complex a = new complex(int.Parse(Console.ReadLine()), int.Parse(Console.ReadLine()));
-            complex b = new complex(int.Parse(Console.ReadLine()), int.Parse(Console.ReadLine()));
+            complex a = new complex(3,5);
+            complex b = new complex(2,5);
             complex n = a + b;
             Console.WriteLine(a + "+" + b + "=" + n);
             Console.ReadKey();

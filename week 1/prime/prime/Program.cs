@@ -10,32 +10,28 @@ namespace prime
     {
         static void Main(string[] args)
         {
-            int x;
-            for(int i = 0; i < args.Length; ++i) // пробегаемся по массиву аргс
+            string s = Console.ReadLine();
+            args = s.Split(' ');
+            foreach(string s1 in args)
             {
-                x = int.Parse(args[i]); // переводим в инт
-                bool res = true; // заводим переменную булеан
-                for(int j = 2;  j < Math.Sqrt(x); ++j) // все делители находятся в этом отрезке
+                bool res = true;
+                int x = int.Parse(s1);
+                for(int i = 2; i <= Math.Sqrt(x); ++i)
                 {
-                    if (x == 1) // 1 это не прайм
+                   
+                    if (x % i == 0)
                     {
                         res = false;
                         break;
                     }
-                    if (x % j == 0) // проверка на простоту
-                    {
-                        res = false;
-                        break;
-                    }
-
                 }
-                if(res == true) // если результат положительный
+                if (res == true && x != 1)
                 {
-                    Console.WriteLine(x);
+                    Console.WriteLine(x + " ");
+                    Console.ReadKey();
                 }
             }
-
-            Console.ReadKey(); // чтобы приложение не закрывалось 
+            
         }
     }
 }

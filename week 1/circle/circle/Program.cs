@@ -31,6 +31,7 @@ namespace circle
         public void findDiameter()
         {
             diameter = 2 * radius;
+            
         }
     }
     class Program

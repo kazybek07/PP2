@@ -12,11 +12,11 @@ namespace student
         public string sname;
         public double gpa;
 
-        public student()
+        public student(string n, string s, double g)
         {
-            name = "Marat";
-            sname = "Gaziz";
-            gpa = 3.7;
+            name = n;
+            sname = s;
+            gpa = g;
         }
 
         public override string ToString()
@@ -29,7 +29,7 @@ namespace student
     {
         static void Main(string[] args)
         {
-            student s = new student();
+            student s = new student("Marat", "Gaziz", 3.7);
             Console.WriteLine(s);
             Console.ReadKey();
 

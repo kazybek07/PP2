@@ -42,7 +42,7 @@ namespace RecuStack
         }
 
         static void Main(string[] args)
-        {
+        {   
             f5(@"C:\Users\local\Desktop\files");
             Console.ReadKey();
         }
