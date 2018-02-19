@@ -13,6 +13,12 @@ namespace rectangle
         public double area;
         public double per;
 
+        public rectangle()
+        {
+            width = 5;
+            height = 4;
+        }
+
         public rectangle(int w, int h)
         {
             width = w;
@@ -26,6 +32,11 @@ namespace rectangle
         {
             per = (width + height) * 2;
         }
+
+        public override string ToString()
+        {
+            return width + " " + height + " " + area + " " + per;
+        }
     }
 
     class Program
@@ -36,9 +47,13 @@ namespace rectangle
             r.findArea();
             r.findPer();
 
-            Console.WriteLine("area:" + r.area);
-            Console.WriteLine("perimeter:" + r.per);
+            /*  Console.WriteLine("area:" + r.area);
+              Console.WriteLine("perimeter:" + r.per);*/
+
+            string s = r.ToString();
+            Console.WriteLine(s);
             Console.ReadKey();
+
 
         }
     }

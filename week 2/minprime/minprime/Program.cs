@@ -26,17 +26,17 @@ namespace minprime
                 {
                     res = false;
                 }
-                if(n > 1)
+                if (n > 1)
                 {
-                    for(int j = 2; j < Math.Sqrt(n); ++j)
+                    for(int j = 2; j <= Math.Sqrt(n); ++j)
                     {
                         if (n % j == 0)
                         {
                             res = false;
-                            
                         }
-
                     }
+
+
                 }
                 if (n < minp && res == true)
                 {

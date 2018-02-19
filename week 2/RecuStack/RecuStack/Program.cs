@@ -42,7 +42,9 @@ namespace RecuStack
         }
 
         static void Main(string[] args)
-        {   
+        {
+            showdirs();
+            showfiles();
             f5(@"C:\Users\local\Desktop\files");
             Console.ReadKey();
         }

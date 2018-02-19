@@ -12,6 +12,13 @@ namespace student
         public string sname;
         public double gpa;
 
+
+        public student(string _name, string _sname)
+        {
+            name = _name;
+            sname = _sname;
+
+        }
         public student(string n, string s, double g)
         {
             name = n;
@@ -29,7 +36,7 @@ namespace student
     {
         static void Main(string[] args)
         {
-            student s = new student("Marat", "Gaziz", 3.7);
+            student s = new student("KBTU", "FIT");
             Console.WriteLine(s);
             Console.ReadKey();
 

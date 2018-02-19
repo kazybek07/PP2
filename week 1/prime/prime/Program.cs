@@ -16,15 +16,25 @@ namespace prime
             {
                 bool res = true;
                 int x = int.Parse(s1);
-                for(int i = 2; i <= Math.Sqrt(x); ++i)
+                for(int i = 2; i < Math.Sqrt(x); ++i)
                 {
-                   
-                    if (x % i == 0)
+                    if(x==1)
                     {
                         res = false;
-                        break;
+
                     }
+
+                    if(x%i==0)
+                    {
+                    res = false;
+
+                    }
+                
+
+
                 }
+
+
                 if (res == true && x != 1)
                 {
                     Console.WriteLine(x + " ");

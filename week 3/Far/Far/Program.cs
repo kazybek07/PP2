@@ -37,7 +37,8 @@ namespace Far
 
             DirectoryInfo dir = new DirectoryInfo(@"C:\Users\local\Desktop\files");
 
-            while (true)
+            bool res = true;
+            while (res)
             {
                 Console.Clear();
                 showFolderContent(dir, pos);
@@ -66,7 +67,7 @@ namespace Far
                         else
                         {
                             Console.BackgroundColor = ConsoleColor.Black;
-                            FileStream fs = new FileStream(@"C:\Users\local\Desktop\files\input.txt", FileMode.Open, FileAccess.Read);
+                            FileStream fs = new FileStream(@"C:\Users\local\Desktop\files\input.txt ", FileMode.Open, FileAccess.Read);
                             StreamReader sr = new StreamReader(fs);
                             string info = sr.ReadToEnd();
                             Console.Clear();
@@ -76,13 +77,18 @@ namespace Far
                         }
                         break;
                     case ConsoleKey.Backspace:
+                       
                         dir = dir.Parent;
                         pos = 0;
                         Console.BackgroundColor = ConsoleColor.Black;
                         break;
+
                     case ConsoleKey.Q:
-                       
+                        res = false;
+                        Console.Clear();
+
                         break;
+                    
 
                 }
             }
