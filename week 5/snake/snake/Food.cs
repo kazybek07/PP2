@@ -45,18 +45,17 @@ namespace snake
         public void Eat(Snake snake, Wall wall)
         {
 
-            score += 5;//когда змейка скушала, счет увеличивается на 5 очков
-                       //пока наша функция не будет правдива , ищем случайную позицию для еды
+            score += 5;
             do SetRandomPosition(wall, snake);
             while (SetRandomPosition(wall, snake) != true);
             SetRandomPosition(wall, snake);
             if (score == (wall.level + 1) * 10)
-            {//меняем уровень при достижении определенного количества очнов
+            {
                 Console.Clear();
                 snake.NewLevel();
                 wall.level++;
                 if (wall.level > 3)
-                {//пока всего 4 уровня поэтому при прохождении на 5 -возращаемся к первому и обнуляем счет
+                {
                     wall.level = 1;
                     score = 0;
                 }
