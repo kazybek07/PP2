@@ -1,24 +1,38 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace snake
 {
-    class Snake
+    public class Snake
     {
         public List<Point> body;
         public char sign;
         public ConsoleColor color;
 
-        public static void EndofGame()
+       
+
+        public void SaveSnake()
         {
-            Console.SetCursorPosition(23, 6);
-            Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.WriteLine("Game Over");
-            Console.WriteLine("Press Q to save the score");
-            Console.WriteLine("Press Enter to new game");
+            FileStream fs = new FileStream(@"snake.xml", FileMode.Create, FileAccess.Write);
+            XmlSerializer xs = new XmlSerializer(typeof(Snake));
+            try
+            {
+                xs.Serialize(fs, Game.snake);
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            finally
+            {
+                fs.Close();
+            }
+
         }
 
         public Snake()
@@ -45,17 +59,45 @@ namespace snake
             }
             body[0].x = body[0].x + dx;
             body[0].y = body[0].y + dy;
+            Game.snake.CanEat();
+            Game.snake.Borders();
+            Game.snake.GameIsOver();
         }
 
-        public bool CanEat(Food food)
+        public bool CanEat()
         {
-            if (food.location.x == body[0].x && food.location.y == body[0].y)
+            if (Game.food.location.x == body[0].x && Game.food.location.y == body[0].y)
             {
                 body.Add(new Point(body[body.Count - 1].x, body[body.Count - 1].y));
-
+                Game.food.SetRandomPosition(Game.wall, Game.snake);
                 return true;
             }
             return false;
+        }
+
+        public void GameIsOver()
+        {
+            for(int i = 1; i< body.Count; ++i)
+            {
+                if(body[0].x==body[i].x && body[0].y == body[i].y)
+                {
+                    Game.GameOver = true;
+                    break;
+                }
+            }
+
+            if(Game.GameOver == false)
+            {
+                for(int i = 0; i < Game.wall.body.Count; ++i)
+                {
+                    if(body[0].x==Game.wall.body[i].x && body[0].y == Game.wall.body[i].y)
+                    {
+                        Game.GameOver = true;
+                        break;
+
+                    }
+                }
+            }
         }
 
         public void NewLevel()
@@ -89,7 +131,7 @@ namespace snake
         public void Draw()
         {
             int i = 0;
-            foreach (Point p in body)
+            foreach(Point p in body)
             {
                 if (i == 0)
                     Console.ForegroundColor = ConsoleColor.Red;

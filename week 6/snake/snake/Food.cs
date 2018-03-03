@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace snake
 {
-    class Food
+    public class Food
     {
         public Point location;
         public char sign;
@@ -16,6 +18,25 @@ namespace snake
         {
             sign = '@';
             color = ConsoleColor.Green;
+          
+        }
+
+        public void SaveFood()
+        {
+            FileStream fs = new FileStream(@"food.xml", FileMode.Create, FileAccess.Write);
+            XmlSerializer xs = new XmlSerializer(typeof(Food));
+            try
+            {
+                xs.Serialize(fs, Game.food);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            finally
+            {
+                fs.Close();
+            }
 
         }
 
@@ -25,12 +46,15 @@ namespace snake
             int y = new Random().Next(0, 20);
 
             for (int i = 0; i < wall.body.Count; i++)
+            {
                 if (wall.body[i].x == x && wall.body[i].y == y)
                     return false;
+            }
             for (int i = 0; i < snake.body.Count; i++)
+            {
                 if (snake.body[i].x == x && snake.body[i].y == y)
                     return false;
-
+            }
             location = new Point(x, y);
             return true;
         }
@@ -38,7 +62,7 @@ namespace snake
         public void Draw()
         {
             Console.ForegroundColor = color;
-            Console.SetCursorPosition(location.x, location.y);
+            Console.SetCursorPosition(left: location.x, top: location.y);
             Console.Write(sign);
         }
 
@@ -62,5 +86,6 @@ namespace snake
 
             }
         }
+
     }
 }

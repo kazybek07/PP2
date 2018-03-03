@@ -1,14 +1,14 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace snake
 {
-    class Wall
+    public class Wall
     {
         public List<Point> body;
         public char sign;
@@ -21,10 +21,29 @@ namespace snake
             sign = '#';
             body = new List<Point>();
 
-            LoadLevel();
+            LoadLevel(1);
         }
 
-        public void LoadLevel()
+        public void SaveWall()
+        {
+            FileStream fs = new FileStream(@"wall.xml", FileMode.Create, FileAccess.Write);
+            XmlSerializer xs = new XmlSerializer(typeof(Wall));
+            try
+            {
+                xs.Serialize(fs, Game.wall);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            finally
+            {
+                fs.Close();
+            }
+
+        }
+
+        public void LoadLevel(int level)
         {
             body.Clear();
 
@@ -39,9 +58,9 @@ namespace snake
             while (i < 20)
             {
                 line = sr.ReadLine();
-                for (int col = 0; col < line.Length; ++col)
+                for(int col = 0; col < line.Length; ++col)
                 {
-                    if (line[col] == '#')
+                    if(line[col]== '#')
                     {
                         body.Add(new Point(col, row));
                     }
@@ -54,7 +73,7 @@ namespace snake
         public void Draw()
         {
             Console.ForegroundColor = color;
-            foreach (Point p in body)
+            foreach(Point p in body )
             {
                 Console.SetCursorPosition(p.x, p.y);
                 Console.Write(sign);

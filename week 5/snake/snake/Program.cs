@@ -11,7 +11,7 @@ namespace snake
     {
         static void Main(string[] args)
         {
-            StreamWriter sw = new StreamWriter(@"C:\Users\local\Desktop\PP\week 5\players.txt",true);
+            StreamWriter sw = new StreamWriter(@"C:\Users\local\Desktop\PP\week 5\players.txt", true);
 
             Console.CursorVisible = false;
             Console.SetWindowSize(70, 20);
@@ -19,19 +19,19 @@ namespace snake
             Food food = new Food();
             Wall wall = new Wall();
 
-            food.SetRandomPosition(wall,snake);
+            food.SetRandomPosition(wall, snake);
             int cnt = 0;
 
             bool res = true;
             while (res)
             {
-                wall.LoadLevel(1);
+                wall.LoadLevel();
                 Console.Clear();
                 snake.Draw();
                 food.Draw();
                 wall.Draw();
 
-                
+
 
                 ConsoleKeyInfo btn = Console.ReadKey();
                 switch (btn.Key)
@@ -52,7 +52,7 @@ namespace snake
                 cnt++;
                 snake.Borders();
                 if (snake.CanEat(food))
-                    food.Eat(snake,wall);
+                    food.Eat(snake, wall);
 
                 if (snake.GameOver(wall))
                 {
@@ -61,10 +61,10 @@ namespace snake
                     switch (bttn.Key)
                     {
                         case ConsoleKey.Enter:
-                        snake.body.Clear();
-                        food.score = 0;
+                            snake.body.Clear();
+                            food.score = 0;
                             snake = new Snake();
-                        Console.Clear();
+                            Console.Clear();
                             break;
 
                         case ConsoleKey.Q:
@@ -79,7 +79,6 @@ namespace snake
                     }
                 }
             }
-
         }
     }
 }
