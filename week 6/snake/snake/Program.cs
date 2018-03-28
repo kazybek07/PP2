@@ -14,7 +14,7 @@ namespace snake
         public static int direction = 1;
         public static int speed = 200;
 
-        static void MoveSnakeThread(object state)
+        static void MoveSnakeThread()
         {
             while (!Game.GameOver)
             {
@@ -61,10 +61,6 @@ namespace snake
            
             while (!Game.GameOver)
             {
-                Game.Draw();
-
-                
-
                 ConsoleKeyInfo btn = Console.ReadKey();
                 switch (btn.Key)
                 {
@@ -93,8 +89,8 @@ namespace snake
                         if (Game.GameOver == true)
                         {
                             Game.GameOver = false;
-                            t = new Thread(MoveSnakeThread);
-                            t.Start();
+                           t = new Thread(MoveSnakeThread);
+                           t.Start();
                         }
                         break;
 

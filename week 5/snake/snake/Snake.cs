@@ -18,7 +18,7 @@ namespace snake
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine("Game Over");
             Console.WriteLine("Press Q to save the score");
-            Console.WriteLine("Press Enter to new game");
+            Console.WriteLine("Press Enter to new game"); 
         }
 
         public Snake()

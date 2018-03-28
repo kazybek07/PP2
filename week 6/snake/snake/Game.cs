@@ -20,9 +20,9 @@ namespace snake
 
         public static void Save()
         {
-            snake.SaveSnake();
+            //snake.SaveSnake();
             wall.SaveWall();
-            food.SaveFood();
+           // food.SaveFood();
         }
 
         public static void Init()

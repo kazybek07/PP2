@@ -17,3 +17,4 @@ User: score:15
 User:KZ score:5
 User:Kazybekscore:0
 User:ljscore:0
+User:NoNamescore:30

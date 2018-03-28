@@ -66,12 +66,12 @@ namespace snake
 
         public bool CanEat()
         {
-            if (Game.food.location.x == body[0].x && Game.food.location.y == body[0].y)
+            if(Game.food.location.x == body[0].x  && Game.food.location.y == body[0].y )
             {
-                body.Add(new Point(body[body.Count - 1].x, body[body.Count - 1].y));
-                Game.food.SetRandomPosition(Game.wall, Game.snake);
+                body.Add(new Point(body[body.Count -1].x, body[body.Count-1].y));
                 return true;
             }
+            Game.food.SetRandomPosition(Game.wall, Game.snake);
             return false;
         }
 
