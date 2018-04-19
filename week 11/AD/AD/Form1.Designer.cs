@@ -35,6 +35,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -68,18 +70,19 @@
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Gold;
             this.label2.ForeColor = System.Drawing.Color.Gold;
-            this.label2.Location = new System.Drawing.Point(207, 38);
+            this.label2.Location = new System.Drawing.Point(266, 38);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(22, 13);
             this.label2.TabIndex = 2;
             this.label2.Text = "     ";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Gold;
             this.label3.ForeColor = System.Drawing.Color.Gold;
-            this.label3.Location = new System.Drawing.Point(65, 90);
+            this.label3.Location = new System.Drawing.Point(12, 228);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(22, 13);
             this.label3.TabIndex = 3;
@@ -96,15 +99,39 @@
             this.label4.TabIndex = 4;
             this.label4.Text = "     ";
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.Gold;
+            this.label6.ForeColor = System.Drawing.Color.Gold;
+            this.label6.Location = new System.Drawing.Point(279, 162);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(22, 13);
+            this.label6.TabIndex = 6;
+            this.label6.Text = "     ";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.Color.Gold;
+            this.label7.ForeColor = System.Drawing.Color.Gold;
+            this.label7.Location = new System.Drawing.Point(236, 99);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(22, 13);
+            this.label7.TabIndex = 7;
+            this.label7.Text = "     ";
+            // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(0, 0);
+            this.label5.BackColor = System.Drawing.Color.Gold;
+            this.label5.ForeColor = System.Drawing.Color.Gold;
+            this.label5.Location = new System.Drawing.Point(58, 185);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(35, 13);
-            this.label5.TabIndex = 5;
-            this.label5.Text = "label5";
-            this.label5.Click += new System.EventHandler(this.label5_Click);
+            this.label5.Size = new System.Drawing.Size(22, 13);
+            this.label5.TabIndex = 8;
+            this.label5.Text = "     ";
+            this.label5.Click += new System.EventHandler(this.label5_Click_1);
             // 
             // Form1
             // 
@@ -112,6 +139,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(335, 308);
             this.Controls.Add(this.label5);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -132,6 +161,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label5;
     }
 }

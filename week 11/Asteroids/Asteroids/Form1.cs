@@ -140,8 +140,27 @@ namespace Asteroids
                 new Point(275,115),
                 new Point(290,110)
             };
+            SolidBrush bulbrush = new SolidBrush(Color.Green);
+            e.Graphics.FillPolygon(bulbrush, arr4);
             Pen pen4 = new Pen(Color.Green, 5);
             e.Graphics.DrawPolygon(pen4, arr4);
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Form1_KeyDown(object sender, KeyEventArgs e)
+        {
+            switch (e.KeyCode)
+            {
+                case Keys.A:
+                    
+
+
+                    break;
+            }
         }
     }
 }
